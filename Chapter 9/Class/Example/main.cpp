@@ -6,7 +6,7 @@ using namespace std;
 void fillArrayRandom(int arr[], int size) {
     srand(time(0)); // Seed random generator
     for (int i = 0; i < size; i++) {
-        arr[i] = rand() % 100 + 1; // 1–100 inclusive
+        arr[i] = rand() % 1000 + 1; // 1–1000 inclusive
     }
 }
 
@@ -25,10 +25,8 @@ void bubbleSort(int arr[], int n) {
     }
 }
 
-
-
-void createArrayToSort() {
-    const int SIZE = 900;
+void sortArray() {
+    const int SIZE = 90;
     int arr[SIZE];
 
     fillArrayRandom(arr, SIZE);
@@ -36,17 +34,17 @@ void createArrayToSort() {
     int n = sizeof(arr) / sizeof(arr[0]);
     cout << "Unsorted array: \n";
     for (int i = 0; i < n; i++)
-        cout << setw(3) << arr[i] << " ";
+        cout << setw(4) << arr[i] << " ";
     bubbleSort(arr, n);
 
-    cout << "Sorted array: \n";
+    cout << endl << "Sorted array: \n";
     for (int i = 0; i < n; i++)
-        cout << setw(3) << arr[i] << " ";
+        cout << setw(4) << arr[i] << " ";
     cout << endl;
 
 }
 
 int main() {
-    createArrayToSort();
+    sortArray();
     return 0;
 }
