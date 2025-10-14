@@ -1,0 +1,9 @@
+<toolSet name="External Tools">
+  <tool name="Manual Build" showInMainMenu="false" showInEditor="false" showInProject="false" showInSearchPopup="false" disabled="false" useConsole="true" showConsoleOnStdOut="false" showConsoleOnStdErr="false" synchronizeAfterRun="true">
+    <exec>
+      <option name="COMMAND" value="C:\mingw64\bin\g++.exe " />
+      <option name="PARAMETERS" value="-std=gnu++20 main.cpp -o main.exe " />
+      <option name="WORKING_DIRECTORY" value="G:/Other computers/My Computer/School/c++ Programming/Chapter2/Class " />
+    </exec>
+  </tool>
+</toolSet>

@@ -1,0 +1,72 @@
+//Zach Whitaker
+// Chapter 6
+// program almost complete
+    // if two regions tie, only the first one is listed as the highest
+    // if the user inputs letters in the sales values, the program crashes
+#include <iostream>
+#include <string>
+#include <vector>
+using namespace std;
+
+
+struct Sales {
+    // create a type that holds a string and a float
+    string x;
+    float y;
+};
+
+void getSales(vector<Sales>& regionSales)
+// function takes a vector by reference which already has sales regions in its
+// function requests and fills the sales values for each region
+// function returns nothing (reference passed the vector)
+{
+    for (int i = 0; i < regionSales.size(); ++i) {
+        do {
+            cout << "Please enter the sales of the " << regionSales[i].x << " region: ";
+            cin >>
+            regionSales[i].y;
+
+            if (regionSales[i].y < 0) {
+                cout << "Please enter a positive number." << endl;
+            }
+        } while (regionSales[i].y < 0);
+    }
+
+}
+
+Sales findHighest(vector<Sales>& regionSales)
+// function takes a vector by reference which already has sales regions in it
+// function finds the highest sales value in the vector
+// function returns the highest sales value as a struct Sales
+{
+    float highest = 0.0;
+    int position = 0;
+    for (int i = 0; i < regionSales.size(); ++i) {
+        float current = regionSales[i].y;
+        if (current > highest) {
+            highest = current;
+            position = i;
+        }
+    }
+return regionSales[position];
+}
+
+int main()
+{
+    vector<Sales> regionSales = {
+        {"northeast", 0.0},
+        {"southeast", 0.0},
+        {"southwest", 0.0},
+        {"northwest", 0.0}
+    };
+
+    cout << "The program will compare the sales of the four company regions and return the highest sales." << endl;
+    getSales(regionSales);
+    Sales highest = findHighest(regionSales);
+    cout << "The highest sales in the four company regions is " << highest.x << " with sales of " << highest.y << endl;
+    cout << "\nThe program closes after displaying the highest region & sales" <<endl;
+    return 0;
+}
+
+
+
