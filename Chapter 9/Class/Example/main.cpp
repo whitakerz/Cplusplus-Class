@@ -13,14 +13,14 @@ void fillArrayRandom(int arr[], int size) {
 void bubbleSort(int arr[], int n) {
     bool flipped;
     for (int i = 0; i < n - 1; i++) {
-        swapped = false;
+        flipped = false;
         for (int j = 0; j < n - i - 1; j++) {
             if (arr[j] > arr[j + 1]) {
                 swap(arr[j], arr[j + 1]);
-                swapped = true;
+                flipped = true;
             }
         }
-        if (!swapped)
+        if (!flipped)
             break;
     }
 }
@@ -41,7 +41,6 @@ void sortArray() {
     for (int i = 0; i < n; i++)
         cout << setw(4) << arr[i] << " ";
     cout << endl;
-
 }
 
 int main() {
