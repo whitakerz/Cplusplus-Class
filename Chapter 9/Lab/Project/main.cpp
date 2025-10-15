@@ -2,6 +2,7 @@
 // October 14, 2025,
 // Chapter 9 Lab
 
+#include <algorithm>
 #include <iostream>
 #include <string>
 #include <iomanip>
@@ -19,19 +20,25 @@ void inputSnowfallData(SnowfallData &data) {
     cin >> data.minches;
 }
 
-void sortSnowfallData(SnowfallData data[], int size) {
-    for (int i = 0; i < size - 1; i++) {
-        for (int j = 0; j > size - i - 1; j++) {
-            if (data[j].mdate < data[j + 1].mdate) {
-                SnowfallData temp = data[j];
-                data[j] = data[j + 1];
-                data[j + 1] = temp;
-            }
-        }
-    }
-}
+//bubble sort ascending
+//takes an array of struct objects by reference to the starting address
+//sorts in place
+void sortSnowfallData(SnowfallData data[], int size)
+ {
+     for (int i = 0; i < size - 1; i++) {
+         for (int j = 0; j < size - i - 1; j++) {
+             if (data[j].mdate > data[j + 1].mdate) {
+                 SnowfallData temp = data[j];
+                 data[j] = data[j + 1];
+                 data[j + 1] = temp;
+             }
+         }
+     }
+ }
 
-void displaySortedData(SnowfallData data[], int size) {
+// function to display the array of snowfall data to the screen pretty-like
+void displaySortedData(SnowfallData data[], int size)
+{
     cout << endl << "Sorted snowfall data:" << endl;
     cout << left << setw(10) << "Date" << "Snowfall (inches)" << endl;
     for (int i = 0; i < size; i++) {
@@ -42,12 +49,12 @@ void displaySortedData(SnowfallData data[], int size) {
 int main() {
     int daysToCollect = 0;
 
-    cout << fixed << setprecision(3);
+    cout << fixed << setprecision(1);
     cout << "How many days of snowfall data do you want to collect? ";
     cin >> daysToCollect;
     while (true) {
-        if (daysToCollect < 1) {
-            cout << "You must collect at least one day of snowfall data." << endl;
+        if (daysToCollect < 2) {
+            cout << "You must collect at least two days of snowfall data." << endl;
             cout << "Please try again. :";
             cin.clear();
             cin.ignore(1000, '\n');
@@ -65,13 +72,13 @@ int main() {
         }
     }
 
-
-    SnowfallData *data = new SnowfallData[daysToCollect];
+    SnowfallData data[daysToCollect]; // creates an array of instances of type SnowfallData
 
     for (int i = 0; i < daysToCollect; i++)
-        inputSnowfallData(data[i]);
+        inputSnowfallData(data[i]); // calls the function to input snowfall data daysToCollect times
+                                        // passes an address of a location in the array
 
-    sortSnowfallData(data, daysToCollect);
-    displaySortedData(data, daysToCollect);
+    sortSnowfallData(data, daysToCollect); // uses the bubble sort algorithm to order the dates
+    displaySortedData(data, daysToCollect); // displays the sorted data
     return 0;
 }
