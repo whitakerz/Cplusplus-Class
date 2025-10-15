@@ -21,7 +21,7 @@ void inputSnowfallData(SnowfallData &data) {
 
 void sortSnowfallData(SnowfallData data[], int size) {
     for (int i = 0; i < size - 1; i++) {
-        for (int j = 0; j < size - i - 1; j++) {
+        for (int j = 0; j > size - i - 1; j++) {
             if (data[j].mdate < data[j + 1].mdate) {
                 SnowfallData temp = data[j];
                 data[j] = data[j + 1];
@@ -45,6 +45,26 @@ int main() {
     cout << fixed << setprecision(3);
     cout << "How many days of snowfall data do you want to collect? ";
     cin >> daysToCollect;
+    while (true) {
+        if (daysToCollect < 1) {
+            cout << "You must collect at least one day of snowfall data." << endl;
+            cout << "Please try again. :";
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cin >> daysToCollect;
+            }
+        else if (daysToCollect > 100) {
+            cout << "You can only collect up to 100 days of snowfall data." << endl;
+            cout << "Please try again. :";
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cin >> daysToCollect;
+        }
+        else {
+            break;
+        }
+    }
+
 
     SnowfallData *data = new SnowfallData[daysToCollect];
 
