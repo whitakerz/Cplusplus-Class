@@ -12,7 +12,7 @@ struct SnowfallData {
     float minches;
 };
 
-void inputSnowfallData(SnowfallData &data) {   // pass by reference
+void inputSnowfallData(SnowfallData &data) {
     cout << "Enter the date (MM/DD): ";
     cin >> data.mdate;
     cout << "Enter the minimum inches of snowfall: ";
@@ -20,10 +20,9 @@ void inputSnowfallData(SnowfallData &data) {   // pass by reference
 }
 
 void sortSnowfallData(SnowfallData data[], int size) {
-    // simple bubble sort ascending by snowfall
     for (int i = 0; i < size - 1; i++) {
         for (int j = 0; j < size - i - 1; j++) {
-            if (data[j].minches > data[j + 1].minches) {
+            if (data[j].mdate < data[j + 1].mdate) {
                 SnowfallData temp = data[j];
                 data[j] = data[j + 1];
                 data[j + 1] = temp;
