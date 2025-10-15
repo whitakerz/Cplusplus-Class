@@ -21,13 +21,13 @@
 #include <iomanip>
 using namespace std;
 
-const int MTRSZ = 3;
+const int MTRSZ = 4;
 
 // Function to input a matrix
 void inputMatrix(int matrix[MTRSZ][MTRSZ]) {
     for (int i = 0; i < MTRSZ; i++) {
         for (int j = 0; j < MTRSZ; j++) {
-            cout << "Enter value for element [" << i << "][" << j << "]: ";
+            cout << "Enter value for element [" << i  << "][" << j << "]: ";
             cin >> matrix[i][j];
         }
     }
