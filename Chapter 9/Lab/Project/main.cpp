@@ -13,13 +13,19 @@ struct SnowfallData {
     float minches;
 };
 
-void inputSnowfallData(SnowfallData &data) {
+void inputSnowfallData(SnowfallData &data)
+{
+    float inches = 0.0f;
     cout << "Enter the date (MM/DD): ";
     cin >> data.mdate;
     cout << "Enter the minimum inches of snowfall: ";
-    cin >> data.minches;
+    while (true) {
+        cin >> inches;
+        if (inches < 0.0f) cout << "Please input a valid positive measurement of snow in inches:";
+        else break;
+    }
+    data.minches = inches;
 }
-
 //bubble sort ascending
 //takes an array of struct objects by reference to the starting address
 //sorts in place
