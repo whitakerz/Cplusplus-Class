@@ -30,8 +30,8 @@ int binarySearch(const std::vector<int>& arr, int x) {
 }
 
 int main() {
-    // Creating an array of 200 elements
-    int size = 2000000;
+    // Creating an array of size elements
+    int size = 200000;
     std::vector<int> data(size);
     for (int i = 0; i < size; ++i) {
         data[i] = i;
@@ -56,6 +56,11 @@ int main() {
     auto binarySort = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
     std::cout << "C++ Sort took " << binarySort.count() << " nanoseconds.\n";
 
+    start = std::chrono::high_resolution_clock::now();
+    std::sort(data.begin(), data.end());
+    end = std::chrono::high_resolution_clock::now();
+    auto binarySort2 = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "2nd C++ Sort took " << binarySort2.count() << " nanoseconds.\n";
 
     // Testing binary search
     start = std::chrono::high_resolution_clock::now();
