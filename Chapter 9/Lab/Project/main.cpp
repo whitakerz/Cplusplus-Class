@@ -45,10 +45,12 @@ void sortSnowfallData(SnowfallData data[], int size)
 // function to display the array of snowfall data to the screen pretty-like
 void displaySortedData(SnowfallData data[], int size)
 {
+    int setwDate = 8;
+    int setwInches = 5;
     cout << endl << "Sorted snowfall data:" << endl;
-    cout << left << setw(10) << "Date" << "Snowfall (inches)" << endl;
+    cout << left << setw(setwDate) << "Date" << "Snowfall" << endl;
     for (int i = 0; i < size; i++) {
-        cout << left << setw(10) << data[i].mdate << data[i].minches << " inches" << endl;
+        cout << left << setw(setwDate) << data[i].mdate << setw(setwInches) << data[i].minches << " inches" << endl;
     }
 }
 

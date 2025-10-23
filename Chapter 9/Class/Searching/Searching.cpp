@@ -31,7 +31,7 @@ int binarySearch(const std::vector<int>& arr, int x) {
 
 int main() {
     // Creating an array of size elements
-    int size = 200000;
+    int size = 2000;
     std::vector<int> data(size);
     for (int i = 0; i < size; ++i) {
         data[i] = i;
