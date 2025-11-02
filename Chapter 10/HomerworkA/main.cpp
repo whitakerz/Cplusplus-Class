@@ -18,12 +18,14 @@ int main() {
     sort(oddArray, oddArray + oddSize);
 
     // display results
-    cout << "Median of the sorted odd array:\n";
+    cout << "Median of the sorted odd array(";
     printArray(oddArray, oddSize);
+    cout << ") ";
     cout << "is " << findMedian(oddArray, oddSize) << endl;
 
-    cout << "\nMedian of the sorted even array:\n";
+    cout << "\nMedian of the sorted even array( ";
     printArray(evenArray, evenSize);
+    cout << ") ";
     cout << "is " << findMedian(evenArray, evenSize) << endl;
 
     return 0;
@@ -31,13 +33,15 @@ int main() {
 
 // Prints array using pointer notation
 void printArray(int* arr, int size) {
-    for (int i = 0; i < size; ++i)
-        cout << *(arr + i) << " ";
-    cout << endl;
+    for (int i = 0; i < size; ++i) {
+        cout << *(arr + i);
+        if (i < size - 1) cout << ", ";
+    }
 }
 
 // Finds median using pointer notation
 double findMedian(int* arr, int size) {
+    if (size == 0) return 0; // div by zero;
     if (size % 2 == 0) {
         int mid1 = *(arr + (size / 2) - 1);
         int mid2 = *(arr + (size / 2));
