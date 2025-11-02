@@ -18,6 +18,8 @@ int main()
         cout << "How many students have you surveyed? ";
         cin >> studentsSurveyed;
         if (studentsSurveyed > 0) break;
+        cin.clear();
+        cin.ignore(1000, '\n');
         cout << "Please enter a positive number." << endl;
     }
     int arr[studentsSurveyed];
@@ -38,6 +40,8 @@ void acceptArray(int* arr, int arrSize) {
             cout << "Enter the number of movies watched for student " << i + 1 << ": ";
             cin >> holder;
             if (holder > 0) break;
+            cin.clear();
+            cin.ignore(1000, '\n');
             cout << "Please enter a positive number." << endl;
         }
         *(arr + i) = holder;
