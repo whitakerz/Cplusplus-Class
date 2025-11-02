@@ -27,7 +27,7 @@ int main()
         cin.ignore(1000, '\n');
     }
 
-    int arr[studentsSurveyed];
+    int* arr = new int[studentsSurveyed];
 
     acceptArray(arr, studentsSurveyed);
     cout << "The student's results in the order they were surveyed are: " << endl;
@@ -37,6 +37,7 @@ int main()
     printArray(arr, studentsSurveyed);
 
     cout << "\nThe average number of movies watched by all students is: " << averageArray(arr, studentsSurveyed) << endl;
+    delete[] arr;
     return 0;
 }
 
