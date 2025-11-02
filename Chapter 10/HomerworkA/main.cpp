@@ -1,3 +1,7 @@
+// Zach Whitaker
+// Lab 10 A
+// November 2, 2025
+
 #include <iostream>
 #include <algorithm> // for sort
 using namespace std;
