@@ -11,16 +11,15 @@ double averageArray(int* arr, int arrSize);
 int main()
 {
     cout << "Welcome to the movie survey program!" << endl;
-    cout << "Please enter the number of students you want to survey." << endl;
     cout << fixed << setprecision(2);
     int studentsSurveyed = 0;
     while (true) {
         cout << "How many students have you surveyed? ";
         cin >> studentsSurveyed;
-        if (studentsSurveyed > 0) break;
+        if (studentsSurveyed > 0 && studentsSurveyed < 50) break;
+        cout << "Please enter the number of students you want to survey (1-50)? " << endl;
         cin.clear();
         cin.ignore(1000, '\n');
-        cout << "Please enter a positive number." << endl;
     }
     int arr[studentsSurveyed];
     acceptArray(arr, studentsSurveyed);
@@ -35,10 +34,16 @@ int main()
 
 void acceptArray(int* arr, int arrSize) {
     int holder = 0;
+    int maxmovies = 10;
+
     for (int i = 0; i < arrSize; i++) {
         while (true) {
             cout << "Enter the number of movies watched for student " << i + 1 << ": ";
             cin >> holder;
+            if (holder > (30*maxmovies)) {
+                cout << "That student should not watch more than "<< maxmovies <<" movies every day" << endl;
+                continue;
+            }
             if (holder > 0) break;
             cin.clear();
             cin.ignore(1000, '\n');
@@ -69,5 +74,6 @@ double averageArray(int* arr, int arrSize)
     for (int i = 0; i < arrSize; i++) {
         sum += *(arr+ i);
     }
+    if (arrSize == 0) return 0;
     return sum / arrSize;
 }
