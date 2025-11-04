@@ -1,100 +1,130 @@
 #include <iostream>
-#include <memory> // Required for smart pointers
 
-// Function prototype: Uses a pointer parameter to modify the original variable (Pass-by-Reference)
-void changeValue(int* ptr);
+void exercise_easy() {
+    int value = 42;
+    // 1. Declare an integer pointer named 'ptr'.
+    int* ptr;
 
-int main() {
-    // 10.1 Pointers and the Address Operator (&)
-    int num = 10;
-    std::cout << "Original value of num: " << num << std::endl;
-    std::cout << "Memory address of num (&num): " << &num << std::endl;
+    // 2. Store the memory address of 'value' in 'ptr'.
+    ptr = &value;
 
-    // ---
+    std::cout << "--- Easy Exercise ---" << std::endl;
+    std::cout << "Original value: " << value << std::endl;
+    std::cout << "Address of value (&value): " << &value << std::endl;
+    std::cout << "Value stored in ptr (address): " << ptr << std::endl;
 
-    // 10.2 Pointer Variables and Indirection Operator (*)
-    // Define a pointer variable and initialize it with the address of 'num'
-    int* intPtr = &num;
+    // 3. Use the indirection operator (*) to change the value of 'value' to 100.
+    *ptr = 100;
 
-    std::cout << "\nValue of intPtr (address of num): " << intPtr << std::endl;
-    // Use the indirection operator (*) to access the value at the address
-    std::cout << "Value at the address stored in intPtr (*intPtr): " << *intPtr << std::endl;
-
-    // Use the pointer to change the value of 'num'
-    *intPtr = 20;
-    std::cout << "New value of num after using *intPtr: " << num << std::endl;
-
-    // ---
-
-    // 10.3 The Relationship Between Arrays and Pointers
-    int vals[] = {4, 7, 11};
-    std::cout << "\nFirst element using array notation (vals[0]): " << vals[0] << std::endl;
-    // An array name 'vals' is the starting address (a pointer constant)
-    std::cout << "First element using pointer notation (*vals): " << *vals << std::endl;
-    // Pointer arithmetic to access the second element (vals + 1)
-    std::cout << "Second element using pointer notation (*(vals + 1)): " << *(vals + 1) << std::endl;
-
-    // ---
-
-    // 10.4 Pointer Arithmetic (Increment/Decrement)
-    int* ptr = vals; // 'ptr' points to vals[0]
-    std::cout << "\nPointer points to value: " << *ptr << std::endl;
-    ptr++;          // Move to the next integer (vals[1])
-    std::cout << "After ptr++, pointer points to value: " << *ptr << std::endl;
-    ptr--;          // Move back to the previous integer (vals[0])
-    std::cout << "After ptr--, pointer points to value: " << *ptr << std::endl;
-
-    // ---
-
-    // 10.5 Initializing Pointers
-    int* nullPtr = nullptr; // Initialize with nullptr (C++11 standard for no valid address)
-    if (nullPtr == nullptr) {
-        std::cout << "\nnullPtr is correctly initialized to nullptr." << std::endl;
-    }
-
-    // ---
-
-    // 10.7 Pointers as Function Parameters
-    int myVal = 50;
-    std::cout << "\nValue of myVal before function call: " << myVal << std::endl;
-    changeValue(&myVal); // Pass the address of myVal
-    std::cout << "Value of myVal after function call (changed via pointer): " << myVal << std::endl;
-
-    // ---
-
-    // 10.9 Dynamic Memory Allocation (new and delete)
-    // Dynamically allocate an integer and store its address in a pointer
-    int* dynamicInt = new int;
-    *dynamicInt = 99;
-    std::cout << "\nDynamically allocated value: " << *dynamicInt << std::endl;
-
-    // Free the dynamically allocated memory
-    delete dynamicInt;
-    dynamicInt = nullptr; // Prevent dangling pointer by setting it to nullptr
-
-    // Dynamic array allocation and deallocation
-    int* dynamicArray = new int[3];
-    dynamicArray[0] = 1;
-    // ... use the array ...
-    std::cout << "Dynamically allocated array element [0]: " << dynamicArray[0] << std::endl;
-
-    delete[] dynamicArray; // Use delete [] for arrays
-    dynamicArray = nullptr;
-
-    // ---
-
-    // 10.13 Smart Pointers (unique_ptr for automatic memory management)
-    // std::unique_ptr manages the memory, automatically deallocating it when it goes out of scope.
-    std::unique_ptr<int> smartPtr = std::make_unique<int>(42);
-    std::cout << "\nValue managed by smart pointer: " << *smartPtr << std::endl;
-    // No need for 'delete', memory will be freed automatically
-
-    return 0;
+    std::cout << "New value of 'value' (after *ptr = 100): " << value << std::endl;
 }
 
-// 10.7 Pointers as Function Parameters implementation
-void changeValue(int* ptr) {
-    // Dereference the pointer to access and modify the original value
-    *ptr = 100;
-    std::cout << "Inside function, value changed to: " << *ptr << std::endl;
+#include <iostream>
+
+void exercise_intermediate() {
+    int numbers[] = {10, 20, 30, 40, 50};
+    const int SIZE = 5;
+
+    // Initialize an integer pointer 'p' to point to the start of the array.
+    int* p = numbers; // Array name 'numbers' is the starting address
+
+    std::cout << "\n--- Intermediate Exercise ---" << std::endl;
+    std::cout << "Accessing array elements using pointer arithmetic:" << std::endl;
+
+    // 1. Loop through the array using pointer arithmetic and the indirection operator.
+    for (int i = 0; i < SIZE; ++i) {
+        // Access the element at index 'i' using *(p + i)
+        std::cout << "Element " << i << ": " << *(p + i) << std::endl;
+    }
+
+    // 2. Use pointer increment (p++) to advance the pointer and print the values.
+    std::cout << "\nUsing pointer increment (p++) to print:" << std::endl;
+    p = numbers; // Reset pointer to the start
+
+    for (int i = 0; i < SIZE; ++i) {
+        std::cout << "Element " << i << ": " << *p << std::endl;
+        p++; // Move to the next element
+    }
+}
+
+#include <iostream>
+
+// Function that dynamically allocates an array and returns its address.
+int* createDynamicArray(int size) {
+    // 1. Dynamically allocate an array of 'size' integers using 'new'.
+    int* arrPtr = new int[size];
+
+    // Initialize the array elements
+    for (int i = 0; i < size; ++i) {
+        arrPtr[i] = (i + 1) * 10;
+    }
+
+    return arrPtr; // Return the address of the dynamically allocated memory
+}
+
+void exercise_advanced() {
+    std::cout << "\n--- Advanced Exercise ---" << std::endl;
+    int size = 5;
+
+    // 2. Call the function and store the returned pointer.
+    int* myArray = createDynamicArray(size);
+
+    std::cout << "Dynamically created array elements:" << std::endl;
+    for (int i = 0; i < size; ++i) {
+        std::cout << "Value at index " << i << ": " << myArray[i] << std::endl;
+    }
+
+    // 3. Crucially, free the memory allocated by 'new' using 'delete []'.
+    delete[] myArray;
+    myArray = nullptr; // Set the pointer to nullptr to avoid a dangling pointer.
+
+    std::cout << "Dynamic memory freed." << std::endl;
+}
+
+#include <iostream>
+
+struct Student {
+    int id;
+    double gpa;
+    std::string name;
+};
+
+void printStudentInfo(const Student* studentPtr) {
+    // Access members using the structure pointer operator (->)
+    std::cout << "Student ID: " << studentPtr->id << std::endl;
+    std::cout << "Student Name: " << studentPtr->name << std::endl;
+    std::cout << "Student GPA: " << studentPtr->gpa << std::endl;
+
+    // This is equivalent to:
+    // std::cout << "Student ID: " << (*studentPtr).id << std::endl;
+}
+
+void exercise_expert() {
+    std::cout << "\n--- Expert Exercise ---" << std::endl;
+
+    // 1. Create a Student object.
+    Student s1 = {101, 3.85, "Alice"};
+
+    // 2. Create a pointer to the Student object.
+    Student* studentPtr = &s1;
+
+    // 3. Pass the pointer to a function to print the info.
+    std::cout << "Printing info using the -> operator:" << std::endl;
+    printStudentInfo(studentPtr);
+
+    // 4. Use the -> operator to directly modify a member.
+    studentPtr->gpa = 3.99;
+
+    std::cout << "\nAfter GPA update via pointer:" << std::endl;
+    std::cout << "New GPA (s1.gpa): " << s1.gpa << std::endl;
+}
+
+
+// Main function to run all exercises
+int main() {
+    exercise_easy();
+    exercise_intermediate();
+    exercise_advanced();
+    exercise_expert();
+    return 0;
 }

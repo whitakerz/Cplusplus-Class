@@ -4,4 +4,6 @@ project(Class)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(Class
-        main.cpp)
+        main.cpp
+        functions.h
+)
