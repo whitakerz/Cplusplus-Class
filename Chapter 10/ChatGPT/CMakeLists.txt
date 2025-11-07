@@ -3,4 +3,7 @@ project(ChatGPT)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(ChatGPT main.cpp)
+add_executable(ChatGPT main.cpp
+        Rectangle.cpp
+        Rectangle.h
+)
