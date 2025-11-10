@@ -6,4 +6,8 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(ChatGPT main.cpp
         Rectangle.cpp
         Rectangle.h
+        Pointers1.cpp
+        Pointers1.h
+        Pointer2.h
+        Pointer2.cpp
 )

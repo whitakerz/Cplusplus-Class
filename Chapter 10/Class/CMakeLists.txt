@@ -6,6 +6,4 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(Class
         main.cpp
         functions.h
-        LinkedList.cpp
-        LinkedList.h
 )

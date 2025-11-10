@@ -121,22 +121,24 @@ int main() {
 
     std::cout << "Inserting at the end: 1, 2, 3" << std::endl;
     sll.insertAtEnd(1);
-    sll.insertAtEnd(2);
+    for (int i = 0; i < 40000; i++) {
+        sll.insertAtEnd(i);
+    }
     sll.insertAtEnd(3);
-    sll.displayList();  // Expected Output: 1 2 3
+    //sll.displayList();  // Expected Output: 1 2 3
 
     std::cout << "Inserting at the beginning: 0" << std::endl;
     sll.insertAtBeginning(0);
-    //sll.insertAtBeginning(100);
-    sll.displayList();  // Expected Output: 0 1 2 3
+    sll.insertAtBeginning(100);
+    //sll.displayList();  // Expected Output: 0 1 2 3
 
     std::cout << "Updating value at position 3 to 9" << std::endl;
     sll.update(3, 9);
-    sll.displayList();  // Expected Output: 0 1 9 3
+    //sll.displayList();  // Expected Output: 0 1 9 3
 
     std::cout << "Deleting node at position 4" << std::endl;
-    sll.deleteByPosition(4);
-    sll.displayList();  // Expected Output: 0 1 9
+    sll.deleteByPosition(4000);
+    //sll.displayList();  // Expected Output: 0 1 9
 
     std::cout << "Is the list empty? " << (sll.isEmpty() ? "Yes" : "No") << std::endl;
     // Expected Output: No
@@ -152,7 +154,7 @@ int main() {
 
     std::cout << "Clearing the list." << std::endl;
     sll.clear();
-    sll.displayList();  // Expected Output: (nothing)
+    //sll.displayList();  // Expected Output: (nothing)
 
     std::cout << "Is the list empty now? " << (sll.isEmpty() ? "Yes" : "No") << std::endl;
     // Expected Output: Yes
