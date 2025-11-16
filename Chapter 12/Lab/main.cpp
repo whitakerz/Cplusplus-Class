@@ -3,24 +3,30 @@
 using namespace std;
 int main()
 {
-    cout << "Hello, Input a sentence." << endl;
+    cout << "Hello, Input a sentence in which each word is capitalized and there are no spaces." << endl;
     string input;
     string copy;
-    getline(cin, input);
+    while (true) {
+        getline(cin, input);
+        if (input != 0) break;
+        cout << "Input a sentence in which each word is capitalized and there are no spaces." << endl;
+        cin.clear(); // reset cin to clear buffer
+        cin.ignore(1000, '\n');
+    }
     cout << input << endl;
     for (int i = 0; i < input.length(); i++) {
         if (i == 0) {
-            toupper(input.at(i));
-            copy.push_back(input.at(i));
+            copy += toupper(input.at(i));
             continue;
         }
-        if (isupper(input.at(i))){
+        if (isupper(input.at(i))) {
             cout << "found a Upper Case!!";
-            copy.push_back(static_cast<char>(" ");
-            copy.push_back(tolower(input.at(i)));
+            copy += " ";
+            copy += tolower(input.at(i));
+        }
 
-
-            //break;
+        else {
+            copy += input.at(i);
         }
 
     }
