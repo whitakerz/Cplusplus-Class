@@ -8,19 +8,20 @@ int main()
     string copy;
     while (true) {
         getline(cin, input);
-        if (input != 0) break;
-        cout << "Input a sentence in which each word is capitalized and there are no spaces." << endl;
+        if (!input.empty() && input.find(' ') == string::npos) break; //check to see if the string is blank && if there are any spaces
+        cout << "Input a sentence in which each word is capitalized and there are no spaces." << endl << endl;
+        cout << "Example: TheQuickBrownFoxJumpedOverTheLazyMoon";
         cin.clear(); // reset cin to clear buffer
         cin.ignore(1000, '\n');
     }
-    cout << input << endl;
+    //cout << input << endl;
     for (int i = 0; i < input.length(); i++) {
         if (i == 0) {
             copy += toupper(input.at(i));
             continue;
         }
         if (isupper(input.at(i))) {
-            cout << "found a Upper Case!!";
+            //cout << "found an Upper Case!!";
             copy += " ";
             copy += tolower(input.at(i));
         }
@@ -30,6 +31,6 @@ int main()
         }
 
     }
-    cout << copy << endl;
+    cout << "Your Sentence was: "<< copy << endl;
     return 0;
 }
