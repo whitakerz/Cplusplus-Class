@@ -9,8 +9,8 @@ int main()
     while (true) {
         getline(cin, input);
         if (!input.empty() && input.find(' ') == string::npos) break; //check to see if the string is blank && if there are any spaces
-        cout << "Input a sentence in which each word is capitalized and there are no spaces." << endl << endl;
-        cout << "Example: TheQuickBrownFoxJumpedOverTheLazyMoon";
+        cout << "Input a sentence in which each word is capitalized and there are no spaces." << endl;
+        cout << "Example: TheQuickBrownFoxJumpedOverTheLazyMoon" << "\nPlease try Again: " << endl;
         cin.clear(); // reset cin to clear buffer
         cin.ignore(1000, '\n');
     }
