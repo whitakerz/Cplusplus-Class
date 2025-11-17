@@ -4,13 +4,15 @@
 #include <limits> // for numeric_limits clearing cin
 using namespace std;
 
+
+
+// Truc,
+// i struggled with the difference in "(char str[])" and "(char* str)" in this function definitions below//
+// Zach
+
 // a function to change all letters in a char array to upper case
 // take a character array
 // returns nothing (modifies in situ)
-
-// Truc,
-// i struggled with the difference in "(char str[])" and "(char* str)" in this function definition//
-// Zach
 void upper(char str[])
 {
     for (int i = 0; str[i] != '\0'; i++)
