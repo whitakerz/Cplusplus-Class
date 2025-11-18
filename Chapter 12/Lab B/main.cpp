@@ -1,14 +1,12 @@
+// Zach Whitaker
+// November 17, 2025,
+// Chapter 12 Lab B
+
 #include <iostream> // for cout and cin
 #include <cstring> // to pass character arrays
 #include <cctype> // to check if a character is upper or lower case
 #include <limits> // for numeric_limits clearing cin
 using namespace std;
-
-
-
-// Truc,
-// i struggled with the difference in "(char str[])" and "(char* str)" in this function definitions below//
-// Zach
 
 // a function to change all letters in a char array to upper case
 // take a character array
