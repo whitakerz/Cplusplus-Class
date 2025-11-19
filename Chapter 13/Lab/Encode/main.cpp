@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-
 using namespace std;
 
 char rot13_char(char c) {
@@ -32,9 +31,17 @@ int main() {
 
     char c;
     while (in.get(c)) {
-        // cout << c;
+        if (!in) {
+            cerr << "Error reading from input file\n";
+            return 1;
+        }
         char encoded = rot13_char(c);
         out.put(encoded);
+        if (!out) {
+            cerr << "Error writing to output file\n";
+            return 1;
+        }
+
         cout << encoded;
     }
 
