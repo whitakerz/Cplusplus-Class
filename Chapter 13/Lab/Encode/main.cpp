@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-// standard rotate 13 encrypyption function
+// a rotate 13 encryption function
 // takes a character to encode
 // returns a coded char
 char rot13_char(char c) {
@@ -15,13 +15,13 @@ char rot13_char(char c) {
     else if (c >= 'A' && c <= 'Z') {
         return 'A' + (c - 'A' + 13) % 26;
     }
-    // period becomes newline
+    // period becomes non-printing character
     else if (c == '.') {
-        return '\n';
+        return '\x1C';
     }
     // newline becomes something else
     else if (c == '\n') {
-        return '~';   // change this to whatever you want
+        return '~';
     }
     // everything else unchanged
     else {
@@ -35,25 +35,27 @@ int main() {
     char plainChar; // variable to hold the incoming letter to be coded
     char codedChar; // variable to hold the outgoing encoded letter
 
+    ifstream in(PLAINTEXTPATH);
+    if (!in) {
+        cerr << "Could not open input file " << PLAINTEXTPATH << endl;
+        return 1;
+    }
     cout << "Welcome to the file encryption tool. \nThis program will take a text file and encoded it character"
             " by character" << endl << endl;
     cout << "Encoding: \n" << PLAINTEXTPATH << "\nto:\n" << ENCODEDFILEPATH << endl << endl;
-    ifstream in(PLAINTEXTPATH);
-    if (!in) {
-        cerr << "Could not open input file\n";
-        return 1;
-    }
+
+
 
     ofstream out(ENCODEDFILEPATH);
     if (!out) {
-        cerr << "Could not open output file\n";
+        cerr << "Could not open output file " << ENCODEDFILEPATH << endl;
         return 1;
     }
 
 
     while (in.get(plainChar)) {
         if (!in) {
-            cerr << "Error reading from input file\n";
+            cerr << "Error reading from input file" << ENCODEDFILEPATH << endl;
             return 1;
         }
 
@@ -61,12 +63,11 @@ int main() {
 
         out.put(codedChar);
         if (!out) {
-            cerr << "Error writing to output file\n";
+            cerr << "Error writing to output file" << ENCODEDFILEPATH << endl;
             return 1;
         }
-
-        //cout << encoded;
     }
+    cout << "The file has been encoded." << endl;
 
     return 0;
 }
