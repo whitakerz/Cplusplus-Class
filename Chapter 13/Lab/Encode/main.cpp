@@ -15,16 +15,16 @@ char rot13_char(char c) {
 }
 
 int main() {
-    string inputFile  = R"(E:\School\C++ Programming\Cplusplus-Class\Chapter 13\Lab\Encode\unsecret.txt)";
-    string outputFile = R"(E:\School\C++ Programming\Cplusplus-Class\Chapter 13\Lab\Encode\output.txt)";;
+    const string PLAINTEXTPATH  = R"(E:\School\C++ Programming\Cplusplus-Class\Chapter 13\Lab\Encode\unsecret.txt)";
+    const string ENCODEDFILEPATH = R"(E:\School\C++ Programming\Cplusplus-Class\Chapter 13\Lab\Encode\secret.txt)";;
 
-    ifstream in(inputFile);
+    ifstream in(PLAINTEXTPATH);
     if (!in) {
         cerr << "Could not open input file\n";
         return 1;
     }
 
-    ofstream out(outputFile);
+    ofstream out(ENCODEDFILEPATH);
     if (!out) {
         cerr << "Could not open output file\n";
         return 1;
@@ -32,7 +32,7 @@ int main() {
 
     char c;
     while (in.get(c)) {
-       // cout << c;
+        // cout << c;
         char encoded = rot13_char(c);
         out.put(encoded);
         cout << encoded;
