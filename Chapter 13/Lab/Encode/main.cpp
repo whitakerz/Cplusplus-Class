@@ -14,16 +14,31 @@ char rot13_char(char c) {
     }
 }
 
-int main()
-{
-    string inputFile = "input.txt";
-    ifstream in(inputFile);
-    string output = "";
-    char c;
-    while (in >> c) {
-        output += rot13_char(c);
-    }
-    ofstream out("output.txt");
-    out << output;
+int main() {
+    string inputFile = R"(E:\School\C++ Programming\Cplusplus-Class\Chapter 13\Lab\Encode\unsecret.txt)";
+    string outputFile = "output.txt";
 
+    ifstream in(inputFile);
+    if (!in) {
+        cerr << "Could not open input file\n";
+        return 1;
+    }
+
+    ofstream out(outputFile);
+    if (!out) {
+        cerr << "Could not open output file\n";
+        return 1;
+    }
+
+    char c;
+
+    while (in.get(c)) {
+        char encoded = rot13_char(c);
+        cout << "we got here";
+        out.put(encoded);
+        // optional: also show on screen
+        cout << encoded;
+    }
+
+    return 0;
 }
