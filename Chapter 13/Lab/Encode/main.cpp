@@ -15,8 +15,8 @@ char rot13_char(char c) {
 }
 
 int main() {
-    string inputFile = R"(E:\School\C++ Programming\Cplusplus-Class\Chapter 13\Lab\Encode\unsecret.txt)";
-    string outputFile = "output.txt";
+    string inputFile  = R"(E:\School\C++ Programming\Cplusplus-Class\Chapter 13\Lab\Encode\unsecret.txt)";
+    string outputFile = R"(E:\School\C++ Programming\Cplusplus-Class\Chapter 13\Lab\Encode\output.txt)";;
 
     ifstream in(inputFile);
     if (!in) {
@@ -31,12 +31,10 @@ int main() {
     }
 
     char c;
-
     while (in.get(c)) {
+       // cout << c;
         char encoded = rot13_char(c);
-        cout << "we got here";
         out.put(encoded);
-        // optional: also show on screen
         cout << encoded;
     }
 
