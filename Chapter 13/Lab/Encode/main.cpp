@@ -7,12 +7,25 @@ using namespace std;
 // takes a character to encode
 // returns a coded char
 char rot13_char(char c) {
+    // ROT13 for lowercase
     if (c >= 'a' && c <= 'z') {
         return 'a' + (c - 'a' + 13) % 26;
-    } else if (c >= 'A' && c <= 'Z') {
+    }
+    // ROT13 for uppercase
+    else if (c >= 'A' && c <= 'Z') {
         return 'A' + (c - 'A' + 13) % 26;
-    } else {
-        return c; // non-letters unchanged
+    }
+    // period becomes newline
+    else if (c == '.') {
+        return '\n';
+    }
+    // newline becomes something else
+    else if (c == '\n') {
+        return '~';   // change this to whatever you want
+    }
+    // everything else unchanged
+    else {
+        return c;
     }
 }
 
