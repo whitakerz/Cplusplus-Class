@@ -1,17 +1,42 @@
-Zach faced a blinking screen each night,
-C++ errors stacked in spite.
-Semicolons lost in lines,
-Pointers twisting cryptic signs.
+In a digital cave lit only by a glowing screen,
+Zach hunches like a stubborn inventor,
+hammering C++ into shape one hostile compile at a time.
 
-He wrestled logic, bit by bit,
-Refused to quit or counterfeit.
-Memory tamed with careful hands,
-Functions shaped by strict demands.
+The compiler greets him with its usual warmth:
+fatal error: abandon hope, mortal.
+He sighs, cracks his knuckles, and descends again.
 
-Then one quiet, stubborn hour,
-His code compiled with perfect power.
-The console spoke his planned design—
-A single, flawless printed line.
+Python once pampers him with effortless friendliness,
+but C++?
+C++ hands him a shovel, points to a mountain,
+and tells him to start digging.
 
-Zach leaned back, calm and clear:
-He’d learned more than coding here.
+Build systems hiss.
+Linkers mutter in ancient curses.
+Error logs spill out like scrolls from a vengeful oracle.
+Zach trudges through them, line by cursed line.
+
+CLion autocomplete, blessed be its name,
+reaches down into the cave like a divine lantern,
+finishing his thoughts, rescuing him
+from the abyss of typing std::something::maybe_this?
+It spares him from misspelling
+the fifteenth function he didn’t even mean to write.
+
+Still, Zach persists.
+A mad scientist in exile,
+tinkering with pointers he doesn’t fully trust,
+slapping brackets and braces into place
+like improvised cave supports.
+
+Hours pass.
+The cave grows colder.
+The compiler grows bolder.
+But Zach keeps grinding forward,
+nudging each line into obedience.
+
+Then—silence.
+A clean build.
+The cave brightens for a moment,
+glowing with the triumph
+of one stubborn victory earned the hard way.

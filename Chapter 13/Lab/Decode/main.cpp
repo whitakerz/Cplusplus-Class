@@ -15,11 +15,11 @@ char rot13_char(char c) {
     else if (c >= 'A' && c <= 'Z') {
         return 'A' + (c - 'A' + 13) % 26;
     }
-    // period becomes non-printing character
+    // ASCII hex 0x1F becomes period
     else if (c == '\x1F') {
         return '.';
     }
-    // newline becomes something else
+    // tilde becomes newline
     else if (c == '~') {
         return '\n';
     }
