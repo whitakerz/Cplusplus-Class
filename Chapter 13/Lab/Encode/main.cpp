@@ -17,7 +17,7 @@ char rot13_char(char c) {
     }
     // period becomes non-printing character
     else if (c == '.') {
-        return '\x1C';
+        return '\x1F';
     }
     // newline becomes something else
     else if (c == '\n') {
@@ -31,7 +31,7 @@ char rot13_char(char c) {
 
 int main() {
     const string PLAINTEXTPATH  = R"(E:\School\C++ Programming\Cplusplus-Class\Chapter 13\Lab\Encode\unsecret.txt)";
-    const string ENCODEDFILEPATH = R"(E:\School\C++ Programming\Cplusplus-Class\Chapter 13\Lab\Encode\secret.txt)";;
+    const string ENCODEDFILEPATH = R"(E:\School\C++ Programming\Cplusplus-Class\Chapter 13\Lab\Encode\secret.txt)";
     char plainChar; // variable to hold the incoming letter to be coded
     char codedChar; // variable to hold the outgoing encoded letter
 
@@ -54,10 +54,6 @@ int main() {
 
 
     while (in.get(plainChar)) {
-        if (!in) {
-            cerr << "Error reading from input file" << ENCODEDFILEPATH << endl;
-            return 1;
-        }
 
         codedChar = rot13_char(plainChar);
 
@@ -66,6 +62,16 @@ int main() {
             cerr << "Error writing to output file" << ENCODEDFILEPATH << endl;
             return 1;
         }
+    }
+    if (!in.eof()) {  // Check to see if the reading stopped because the end of the file or some other reason
+        cerr << "Error reading from input file " << PLAINTEXTPATH << endl;
+        return 1;
+    }
+
+    // check to see if the file was fully written (Checks for errors at the end of write)
+    if (!out) {
+        cerr << "Error finalizing output file " << ENCODEDFILEPATH << endl;
+        return 1;
     }
     cout << "The file has been encoded." << endl;
 
