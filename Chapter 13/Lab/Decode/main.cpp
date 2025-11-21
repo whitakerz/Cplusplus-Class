@@ -63,6 +63,7 @@ int main() {
             return 1;
         }
     }
+    in.close();
     if (!in.eof()) {  // Check to see if the reading stopped because the end of the file or some other reason
         cerr << "Error reading from input file " << SECRETTEXTPATH << endl;
         return 1;
@@ -74,7 +75,7 @@ int main() {
         return 1;
     }
     out.close();
-    in.close();
+
     cout << "The file has been decoded." << endl;
 
     return 0;

@@ -63,6 +63,7 @@ int main() {
             return 1;
         }
     }
+    in.close();
     if (!in.eof()) {  // Check to see if the reading stopped because the end of the file or some other reason
         cerr << "Error reading from input file " << PLAINTEXTPATH << endl;
         return 1;
@@ -73,7 +74,7 @@ int main() {
         cerr << "Error finalizing output file " << ENCODEDFILEPATH << endl;
         return 1;
     }
-    in.close();
+
     out.close();
     cout << "The file has been encoded." << endl;
 
