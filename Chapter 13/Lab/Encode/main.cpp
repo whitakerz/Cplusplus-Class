@@ -73,6 +73,8 @@ int main() {
         cerr << "Error finalizing output file " << ENCODEDFILEPATH << endl;
         return 1;
     }
+    in.close();
+    out.close();
     cout << "The file has been encoded." << endl;
 
     return 0;

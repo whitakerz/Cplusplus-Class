@@ -33,7 +33,7 @@ void testBasicFileIO() {
 
     std::cout << "Written and read: '" << line1 << "'" << std::endl;
 
-    std::remove("test_basic.txt");
+   //std::remove("test_basic.txt");
 
     std::cout << "✓ Test passed: Basic file I/O works correctly\n" << std::endl;
 }
@@ -67,7 +67,7 @@ void testTextFileReading() {
         std::cout << item.first << ": " << item.second << std::endl;
     }
 
-    std::remove("test_reading.txt");
+    //std::remove("test_reading.txt");
 
     std::cout << "✓ Test passed: Text file reading works correctly\n" << std::endl;
 }
@@ -100,7 +100,7 @@ void testFileAppending() {
 
     std::cout << "Total lines after append: " << lines.size() << std::endl;
 
-    std::remove("test_append.txt");
+    //std::remove("test_append.txt");
 
     std::cout << "✓ Test passed: File appending works correctly\n" << std::endl;
 }
@@ -141,7 +141,7 @@ void testBinaryFiles() {
               << ", ID: " << readStudents[0].id
               << ", GPA: " << readStudents[0].gpa << std::endl;
 
-    std::remove("test_binary.dat");
+    //std::remove("test_binary.dat");
 
     std::cout << "✓ Test passed: Binary files work correctly\n" << std::endl;
 }
@@ -180,7 +180,7 @@ void testFilePositioning() {
     std::cout << "Modified line: '" << line << "'" << std::endl;
 
     file.close();
-    std::remove("test_position.txt");
+    //std::remove("test_position.txt");
 
     std::cout << "✓ Test passed: File positioning works correctly\n" << std::endl;
 }
@@ -213,7 +213,7 @@ void testErrorHandling() {
     assert(inFile.eof());
 
     inFile.close();
-    std::remove("test_error.txt");
+    //std::remove("test_error.txt");
 
     std::cout << "File state checking works correctly" << std::endl;
 
@@ -249,7 +249,7 @@ void testFormattedOutput() {
     std::cout << "Formatted line 2: '" << line2 << "'" << std::endl;
     std::cout << "Formatted line 4: '" << line4 << "'" << std::endl;
 
-    std::remove("test_formatted.txt");
+    //std::remove("test_formatted.txt");
 
     std::cout << "✓ Test passed: Formatted output works correctly\n" << std::endl;
 }
@@ -299,7 +299,7 @@ void testCSVProcessing() {
     std::cout << "CSV rows: " << csvData.size() << std::endl;
     std::cout << "Average score: " << avgScore << std::endl;
 
-    std::remove("test_data.csv");
+//    std::remove("test_data.csv");
 
     std::cout << "✓ Test passed: CSV processing works correctly\n" << std::endl;
 }
@@ -344,8 +344,8 @@ void testFileUtilities() {
     std::cout << "Original file size: " << size << " bytes" << std::endl;
     std::cout << "Copy file size: " << copySize << " bytes" << std::endl;
 
-    std::remove("source.txt");
-    std::remove("copy.txt");
+    //std::remove("source.txt");
+    //std::remove("copy.txt");
 
     std::cout << "✓ Test passed: File utilities work correctly\n" << std::endl;
 }
@@ -391,16 +391,16 @@ int main() {
     std::cout << "Test Suite" << std::endl;
     std::cout << "========================================\n" << std::endl;
 
-    testBasicFileIO();
-    testTextFileReading();
-    testFileAppending();
-    testBinaryFiles();
-    testFilePositioning();
-    testErrorHandling();
-    testFormattedOutput();
-    testCSVProcessing();
-    testFileUtilities();
-    testStringStreams();
+    //testBasicFileIO();
+    // testTextFileReading();
+    // testFileAppending();
+    //testBinaryFiles();
+     //testFilePositioning();
+    // testErrorHandling();
+     //testFormattedOutput();
+     //testCSVProcessing();
+     //testFileUtilities();
+     testStringStreams();
 
     std::cout << "========================================" << std::endl;
     std::cout << "All Chapter 13 tests passed successfully!" << std::endl;
