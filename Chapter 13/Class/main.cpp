@@ -391,16 +391,16 @@ int main() {
     std::cout << "Test Suite" << std::endl;
     std::cout << "========================================\n" << std::endl;
 
-    //testBasicFileIO();
-    // testTextFileReading();
-    // testFileAppending();
-    //testBinaryFiles();
-     //testFilePositioning();
-    // testErrorHandling();
-     //testFormattedOutput();
-     //testCSVProcessing();
-     //testFileUtilities();
-     testStringStreams();
+    testBasicFileIO();
+    testTextFileReading();
+    testFileAppending();
+    testBinaryFiles();
+    testFilePositioning();
+    testErrorHandling();
+    testFormattedOutput();
+    testCSVProcessing();
+    testFileUtilities();
+    testStringStreams();
 
     std::cout << "========================================" << std::endl;
     std::cout << "All Chapter 13 tests passed successfully!" << std::endl;
